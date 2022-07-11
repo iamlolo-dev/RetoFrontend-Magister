@@ -1,9 +1,25 @@
 * {
-    font-family: Monserrat, sans-serif;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 body {
     background-color: var(--background-color);
     margin: 0 auto;
     padding: 0;
+    color: var(--fff-color);
+}
+
+/* css welcomePage */
+
+.h-header {
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.p-text {
+    width: 350px;
+    font-size: 20px;
+    margin-bottom: 4em;
 }
