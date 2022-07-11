@@ -15,7 +15,7 @@ export const MatriculaWelcomePage = () => {
     return (
         <Box component='div' style={{ display: 'flex', flexDirection: 'column', textAlign: 'center', alignItems: 'center' }}>
             
-            <LogoMagister />
+            <LogoMagister config={{ height: 'auto', width: 350,maxWidth: '350px',mt: '4rem' }}/>
 
             <span className='h-header'>¡Comencemos con tu matrícula!</span>
 

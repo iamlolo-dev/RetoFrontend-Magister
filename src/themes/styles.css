@@ -4,8 +4,6 @@
 
 body {
     background-color: var(--background-color);
-    margin: 0 auto;
-    padding: 0;
     color: var(--fff-color);
 }
 
