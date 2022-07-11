@@ -1,0 +1,9 @@
+* {
+    font-family: Monserrat, sans-serif;
+}
+
+body {
+    background-color: var(--background-color);
+    margin: 0 auto;
+    padding: 0;
+}
