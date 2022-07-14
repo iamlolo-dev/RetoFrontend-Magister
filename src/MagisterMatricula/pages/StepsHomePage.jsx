@@ -34,18 +34,18 @@ export const StepsHomePage = () => {
     };
 
     return (
-        <div className='mt-12 mb-12 rounded-2xl shadow-xl xl:w-1/2 mx-auto'>
+        <div className='mt-12 mb-12 rounded-2xl shadow-xl p-0 m-10'>
             {/* Stepper */}
-            <div className='grid grid-cols-6 gap-3'>
+            <div className='grid grid-cols-8 gap-3'>
 
                 {/* col 1 */}
-                <div className='bg-transparent col-span-2'>
+                <div className='bg-transparent col-span-2 m-5'>
                     <LogoMagister config='w-72 max-w-lg' />
                     <Stepper steps={steps} currentStep={currentStep} />
                 </div>
 
                 {/* col 2 */}
-                <div className='bg-white w-90 rounded-2xl col-span-4'>
+                <div className='bg-white w-90 rounded-2xl col-span-6'>
                     <UseContextProvider>{displayStep(currentStep)}</UseContextProvider>
 
                     {/* navigation button */}
