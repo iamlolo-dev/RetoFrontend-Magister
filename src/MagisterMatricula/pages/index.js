@@ -1,2 +1,2 @@
 export * from './MatriculaWelcomePage'
-export * from './StepsPage'
+export * from './StepsHomePage'

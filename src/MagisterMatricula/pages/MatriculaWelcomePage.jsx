@@ -1,42 +1,38 @@
 import React from 'react'
-import { Box, Button } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
 
-import { LogoMagister } from '../components/Welcome/LogoMagister'
+import { LogoMagister } from '../components/welcome/LogoMagister'
 
 export const MatriculaWelcomePage = () => {
 
     const navigate = useNavigate();
 
     const handleClick = () => {
-        navigate('/steps');
+        navigate('/home');
     }
 
     return (
-        <Box component='div' style={{ display: 'flex', flexDirection: 'column', textAlign: 'center', alignItems: 'center' }}>
-            
-            <LogoMagister config={{ height: 'auto', width: 350,maxWidth: '350px',mt: '4rem' }}/>
+        <div className='container mx-auto flex flex-col text-center items-center ' >
 
-            <span className='h-header'>¡Comencemos con tu matrícula!</span>
+            <LogoMagister config='w-80 max-w-lg mt-4' />
 
-            <span className='p-text'>Para comenzar a especializarte, vamos a realizar unas preguntas para darte el mejor servicio</span>
+            <span className='mt-12 mb-12 text-4xl font-bold'>
+                ¡Comencemos con tu matrícula!
+            </span>
 
-            <Button
-                variant='contained'
-                size='large'
-                sx={{
-                    width:' 200px',
-                    borderRadius: '10px',
-                    backgroundColor: '#0bc6fe',
-                    boxShadow: '3',
-                    textTransform: 'none',
-                    fontSize: '1.2rem',
-                    fontWeight: 'bold',
-                }}
+            <span className='mt-0 mb-24 text-2xl w-80 font-medium'>
+                Para comenzar a especializarte, vamos a realizar unas preguntas para darte el mejor servicio
+            </span>
+
+            <button
+                className='bg-box-color hover:bg-hover-tp2 shadow-lg text-white font-bold py-2 px-14 rounded-lg text-lg'
                 onClick={handleClick}
             >
                 Comenzar
-            </Button>
-        </Box >
+            </button>
+            <button className='text-box-color mt-4 mb-4 text-1xl font-bold hover:text-hover-tp2'>
+                Volver atrás
+            </button>
+        </div >
     )
 }

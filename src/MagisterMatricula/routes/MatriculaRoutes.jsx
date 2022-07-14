@@ -1,22 +1,19 @@
-import { Container } from '@mui/material'
 import { Navigate, Route, Routes } from 'react-router-dom'
 
+import { MatriculaWelcomePage, StepsHomePage } from '../pages'
 import { Navbar } from '../../ui/components/Navbar'
-import { MatriculaWelcomePage, StepsPage } from '../pages'
 
 export const MatriculaRoutes = () => {
     return (
         <>
             <Navbar />
-            <Container maxWidth='xl'>
                 <Routes>
-                <Route path='home' element={<MatriculaWelcomePage />} />
-                <Route path='steps' element={<StepsPage />} />
+                    <Route path='start' element={<MatriculaWelcomePage />} />
+                    
+                    <Route path='home' element={<StepsHomePage />} />
 
-
-                    <Route path='/' element={<Navigate to='/home' />} />
+                    <Route path='/' element={<Navigate to='/start' />} />
                 </Routes>
-            </Container>
         </>
     )
 }

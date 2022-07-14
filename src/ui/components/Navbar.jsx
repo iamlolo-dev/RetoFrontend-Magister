@@ -1,16 +1,14 @@
-import { AppBar, Box, IconButton, Toolbar, Typography } from '@mui/material'
-import MenuIcon from '@mui/icons-material/Menu';
-
 import React from 'react'
+import { MenuIcon } from '../../MagisterMatricula/components/svg/MenuIcon'
 
 export const Navbar = () => {
     return (
-            <AppBar position="static" color='transparent' sx={{boxShadow: 'none'}}>
-                <Toolbar variant="dense" sx={{ justifyContent:'flex-end'}}  >
-                    <IconButton edge="end" size='large' aria-label="menu" sx={{ mr: 2, color:'#fff' }}>
-                        <MenuIcon />
-                    </IconButton>
-                </Toolbar>
-            </AppBar>
+        <nav className="bg-transparent px-2 py-2 ">
+            <div className="container flex justify-end items-center mx-auto">
+                <button type="button" className=" p-1 text-sm rounded-lg hover:bg-hover-tp1  " >
+                    <MenuIcon />
+                </button>
+            </div>
+        </nav>
     )
 }
