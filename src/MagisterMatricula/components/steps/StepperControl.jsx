@@ -1,7 +1,7 @@
 
 export const StepperControl = ({ handleClick, currentStep, steps }) => {
     return (
-        <div className="container mt-4 mb-8 flex justify-around">
+        <div className="container mt-20 mb-8 flex justify-around">
 
             {currentStep !== 1 && (
                 <button

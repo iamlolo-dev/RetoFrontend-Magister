@@ -12,6 +12,7 @@ module.exports = {
         'hover-tp2': '#05deff',
         'text-color': '#d0e1f5',
         'txt-color-2': '#577294',
+        'button-fak-color': '#a9d4ea',
       },
     },
   },

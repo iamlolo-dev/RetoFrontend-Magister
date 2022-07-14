@@ -1,11 +1,11 @@
-import React, { Fragment, useState } from 'react'
+import React, { Fragment } from 'react'
 import { Listbox, Transition } from '@headlessui/react'
 import { CheckIcon, SelectorIcon } from '@heroicons/react/solid'
 
 export const DropListBox = ({ selected, setSelected, data }) => {
 
     return (
-        <div className="mt-4 w-full flex-1 text-gray-400 border border-txt-color-2 rounded-lg">
+        <div className="mt-4 w-6/12 flex-1 text-gray-400 border bg-white border-txt-color-2 rounded-lg">
             <Listbox value={selected} onChange={setSelected}>
                 <div>
                     <Listbox.Button

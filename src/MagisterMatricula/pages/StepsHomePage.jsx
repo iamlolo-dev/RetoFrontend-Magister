@@ -34,7 +34,7 @@ export const StepsHomePage = () => {
     };
 
     return (
-        <div className='mt-12 mb-12 rounded-2xl shadow-xl p-0 m-10'>
+        <div className='mt-12 mb-12 shadow-xl p-0 m-10'>
             {/* Stepper */}
             <div className='grid grid-cols-8 gap-3'>
 
@@ -45,7 +45,7 @@ export const StepsHomePage = () => {
                 </div>
 
                 {/* col 2 */}
-                <div className='bg-white w-90 rounded-2xl col-span-6'>
+                <div className='bg-background-form-color w-90 col-span-6 p-5'>
                     <UseContextProvider>{displayStep(currentStep)}</UseContextProvider>
 
                     {/* navigation button */}

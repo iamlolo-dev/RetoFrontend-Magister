@@ -4,6 +4,8 @@ import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../../../../api/firebase-config';
 import { useStepperContext } from '../../../contexts/StepperProvider';
 import { DropListBox } from '../../droplist/DropListBox';
+import { GoIcon } from '../../svg/GoIcon';
+import { ButtonFake } from '../../ButtonFake';
 
 
 export const Account = () => {
@@ -50,17 +52,19 @@ export const Account = () => {
         getProvincia();
     }, [])
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setUserData({ ...userData, [name]: value });
-    };
+    useEffect(() => {
+        if (selectedRama.id !== 0 && selectedProvincia.id !== 0) {
+            setUserData({ ...userData, ['rama']: selectedRama.name, ['provincia']: selectedProvincia.name  });
+        }
+    }, [selectedRama, selectedProvincia])
+
 
     return (
         <>
-            <div className='mt-10 text-txt-color-2 text-2xs font-bold p-5 text-center'>¿En qué te quieres especializar?</div>
+            <div className='mt-10 text-txt-color-2 text-2xl font-bold p-5 text-center'>¿En qué te quieres especializar?</div>
             <div className='flex flex-row'>
-                {/*  */}
-                <div className='p-3 w-full flex-1'>
+                {/* droplist Rama */}
+                <div className='p-10 w-full'>
                     <div className=' w-full mt-3 h-7 text-xs font-bold leading-8 text-txt-color-2'>
                         Rama
                     </div>
@@ -70,8 +74,8 @@ export const Account = () => {
 
                     <DropListBox selected={selectedRama} setSelected={setSelectedRama} data={rama} />
                 </div>
-                {/*  */}
-                <div className='p-3 w-full flex-1'>
+                {/* droplist Provincia */}
+                <div className='p-10 w-full'>
                     <div className='mt-3 h-7 text-xs font-bold leading-8 text-txt-color-2'>
                         Provincia
                     </div>
@@ -80,7 +84,25 @@ export const Account = () => {
                     </div>
                     <DropListBox selected={selectedProvincia} setSelected={setSelectedProvincia} data={provincia} />
                 </div>
+            </div >
+            <div className='m-10'>
+                <div className='text-txt-color-2 text-xl '>¿Has sido alumn@ de Magister?</div>
+                <div className='text-box-color text-l flex flex-row items-center'>Consulta Condiciones <GoIcon /></div>
+                <div className='mt-5 container flex flex-row'>
+                    <ButtonFake text={'No'} />
+                    <ButtonFake text={'Si'} />
+                    <ButtonFake text={'Sí, después de 2017'} />
+                </div>
+                <div className='mt-12 text-txt-color-2 text-xl '>Entrega de material</div>
+                <div className='text-box-color text-l flex flex-row items-center'>Consulta Condiciones <GoIcon /></div>
+                <button
+                    className='mt-5 rounded-xl bg-button-fak-color text-background-color py-2 px-6 text-txt-color-2 '
+                    type="button"
+                >
+                    Material mes a mes
+                </button>
             </div>
+
         </>
     );
 }
