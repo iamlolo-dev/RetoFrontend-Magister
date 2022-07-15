@@ -1,11 +1,12 @@
-import { useState } from 'react';
 
+import { useState } from 'react';
 import { LogoMagister } from '../components/welcome/LogoMagister';
-import { Step1, Step2, Step3, Step4, Step6, Step5, Stepper, StepperControl } from "../components/steps";
+import { Step1, Step2, Step3, Step4, Step6, Step5, Stepper, StepperControl, Final } from "../components/steps";
 import { UseContextProvider } from "../contexts/StepperProvider";
 
 export const StepsHomePage = () => {
     const [currentStep, setCurrentStep] = useState(1);
+    const [lastStep, setLastStep] = useState(false);
 
     const steps = [
         '¿En qué te quieres especializar?',
@@ -22,15 +23,17 @@ export const StepsHomePage = () => {
         if (step === 3) return <Step3 />;
         if (step === 4) return <Step4 />;
         if (step === 5) return <Step5 />;
-        if (step === 6) return <Step6 />;
+        if (step === 6) return <Step6 action={lastStep} setAction={setLastStep} />;
 
         return null;
     };
 
-    const handleClick = (direction) => {
+    const handleClick = async (direction) => {
         let newStep = currentStep;
 
         direction === 'next' ? newStep++ : newStep--;
+        currentStep === steps.length ? setLastStep(true) : setLastStep(false);
+
         // check if steps are within bounds
         newStep > 0 && newStep <= steps.length && setCurrentStep(newStep);
     };
@@ -51,12 +54,13 @@ export const StepsHomePage = () => {
                     <UseContextProvider>{displayStep(currentStep)}</UseContextProvider>
 
                     {/* navigation button */}
-
-                    <StepperControl
-                        handleClick={handleClick}
-                        currentStep={currentStep}
-                        steps={steps}
-                    />
+                    {lastStep !== null && (
+                        <StepperControl
+                            handleClick={handleClick}
+                            currentStep={currentStep}
+                            steps={steps}
+                        />
+                    )}
 
                 </div>
 

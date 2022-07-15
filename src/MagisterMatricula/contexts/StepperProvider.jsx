@@ -4,8 +4,6 @@ import { StepperContext } from "./StepperContext";
 export const  UseContextProvider = ({ children }) => {
     const [userData, setUserData] = useState("");
 
-    console.log(userData);
-
     return (
         <StepperContext.Provider value={{ userData, setUserData }}>
             {children}
