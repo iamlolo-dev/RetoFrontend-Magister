@@ -12,6 +12,12 @@ body {
     color: var(--fff-color);
 }
 
+.vl {
+    border-left: 1px;
+    height: 45px;
+    position: absolute;
+}
+
 .wrapper {
     display: flex;
     justify-content: center;

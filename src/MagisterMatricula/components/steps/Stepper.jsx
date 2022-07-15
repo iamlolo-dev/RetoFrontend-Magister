@@ -94,7 +94,7 @@ export const Stepper = ({ steps, currentStep }) => {
                 </div>
                 {index !== newStep.length - 1 && (
                 <div
-                    className={`list-item justify-center absolute mt-24 ml-4 border-r-2 transition duration-500  ${step.completed ? "border-hover-tp2" : "border-text-color "} `}
+                    className={`vl justify-center absolute mt-20 ml-4 border-r-2 transition duration-500  ${step.completed ? "border-hover-tp2" : "border-text-color "} `}
                     
                 />)}
             </div>
