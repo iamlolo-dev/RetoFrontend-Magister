@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Account, Details, Final, Payment, Stepper, StepperControl } from "../components/steps";
+import { Step1, Step2, Step3, Stepper, StepperControl } from "../components/steps";
+import { Step4 } from '../components/steps/step/Step4';
 import { LogoMagister } from '../components/welcome/LogoMagister';
 import { UseContextProvider } from "../contexts/StepperProvider";
 
@@ -17,10 +18,10 @@ export const StepsHomePage = () => {
 
     const displayStep = (step) => {
 
-        if (step === 1) return <Account />;
-        if (step === 2) return <Details />;
-        if (step === 3) return <Payment />;
-        if (step === 4) return <Final />;
+        if (step === 1) return <Step1 />;
+        if (step === 2) return <Step2 />;
+        if (step === 3) return <Step3 />;
+        if (step === 4) return <Step4 />;
 
         return null;
     };

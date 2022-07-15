@@ -5,7 +5,7 @@ import { CheckIcon, SelectorIcon } from '@heroicons/react/solid'
 export const DropListBox = ({ selected, setSelected, data }) => {
 
     return (
-        <div className="mt-4 w-6/12 flex-1 text-gray-400 border bg-white border-txt-color-2 rounded-lg">
+        <div className="mt-4 w-2/4 text-gray-400 border bg-white border-txt-color-2 rounded-lg">
             <Listbox value={selected} onChange={setSelected}>
                 <div>
                     <Listbox.Button
@@ -33,16 +33,11 @@ export const DropListBox = ({ selected, setSelected, data }) => {
                             className="max-h-60 w-full overflow-auto rounded-lg bg-white py-1 text-base text-grey shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
                         >
                             {data.length > 1 ? (
-
                                 data.map(({ item }) => (
                                     <>
                                         <Listbox.Option
-                                            className={({ active }) =>
-                                                `relative cursor-pointer select-none py-2 pl-10 pr-4 ${active ? 'bg-box-color text-white' : 'text-gray-900'
-                                                }`
-                                            }
-
-                                            key={item.id}
+                                            className={({ active }) =>`relative cursor-pointer select-none py-3 pl-10 pr-4 ${active ? 'bg-box-color text-white' : 'text-gray-900'}`}
+                                            key={item}
                                             value={item}
                                             disabled={item.disabled}
                                         >
@@ -63,23 +58,19 @@ export const DropListBox = ({ selected, setSelected, data }) => {
                                         </Listbox.Option>
                                         <hr />
                                     </>
-
                                 ))
                             ) :
-                                (
-                                    data.map(({ id, disabled, name }) => (
+                                (data.map((item) => (
 
                                         <Listbox.Option
-                                            key={id}
-                                            value={name}
-                                            disabled={disabled}
+                                            key={item.id}
+                                            value={item}
+                                            disabled={item.disabled}
                                         >
-                                            {name}
+                                            {item.name}
                                         </Listbox.Option>
-                                    ))
-                                )
+                                    )))
                             }
-
                         </Listbox.Options>
                     </Transition>
                 </div>

@@ -1,14 +1,13 @@
 import { useEffect, useState } from 'react';
-import { collection, getDocs } from 'firebase/firestore';
 
-import { db } from '../../../../api/firebase-config';
 import { useStepperContext } from '../../../contexts/StepperProvider';
 import { DropListBox } from '../../droplist/DropListBox';
 import { GoIcon } from '../../svg/GoIcon';
 import { ButtonFake } from '../../ButtonFake';
+import { useGetCollectionData } from '../../../hooks/useGetCollectionData';
 
 
-export const Account = () => {
+export const Step1 = () => {
     const { userData, setUserData } = useStepperContext();
 
     const [rama, setRama] = useState([{ id: 0, name: 'Ej: Maestros - Audición y lenguaje', disabled: true }]);
@@ -17,40 +16,8 @@ export const Account = () => {
     const [selectedRama, setSelectedRama] = useState(rama[0])
     const [selectedProvincia, setSelectedProvincia] = useState(provincia[0])
 
-    const ramaCollectionRef = collection(db, 'ramas');
-    const provinciasCollectionRef = collection(db, 'provincias');
-
-    useEffect(() => {
-
-        const getRamas = async () => {
-            const data = await getDocs(ramaCollectionRef);
-
-            let auxArray = [];
-
-            data.docs.map(doc => (
-                auxArray.push(doc.data())
-
-            ))
-
-            setRama(auxArray);
-        }
-
-        const getProvincia = async () => {
-            const data = await getDocs(provinciasCollectionRef);
-
-            let auxArray = [];
-
-            data.docs.map(doc => (
-                auxArray.push(doc.data())
-
-            ))
-
-            setProvincia(auxArray);
-        }
-
-        getRamas();
-        getProvincia();
-    }, [])
+    useGetCollectionData('ramas', setRama);
+    useGetCollectionData('provincias', setProvincia);
 
     useEffect(() => {
         if (selectedRama.id !== 0 && selectedProvincia.id !== 0) {
@@ -58,11 +25,12 @@ export const Account = () => {
         }
     }, [selectedRama, selectedProvincia])
 
-
+    
     return (
         <>
             <div className='mt-10 text-txt-color-2 text-2xl font-bold p-5 text-center'>¿En qué te quieres especializar?</div>
             <div className='flex flex-row'>
+
                 {/* droplist Rama */}
                 <div className='p-10 w-full'>
                     <div className=' w-full mt-3 h-7 text-xs font-bold leading-8 text-txt-color-2'>
