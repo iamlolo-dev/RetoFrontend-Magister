@@ -14,7 +14,7 @@ export const ButtonGroup = ({setSelected, selected, data }) => {
                             ${checked ? 'bg-box-color text-white' : 'bg-white'} cursor-pointer rounded-lg shadow-md `}
                         key={item.id}
                     >
-                            <span>{item.name}</span>
+                            <span>{item.id === 1 ? `${item.name} (recomendado)` : item.name}</span>
                     </RadioGroup.Option>
                 </>
             ))}

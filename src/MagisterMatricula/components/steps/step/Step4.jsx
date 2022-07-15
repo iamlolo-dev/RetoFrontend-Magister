@@ -5,8 +5,6 @@ import { InputMod } from '../../input/InputMod';
 export const Step4 = () => {
     const { userData, setUserData } = useStepperContext();
 
-
-
     return (
         <>
             <div className='mt-10 text-txt-color-2 text-2xl font-bold p-5 text-center'>Tus datos personales</div>
